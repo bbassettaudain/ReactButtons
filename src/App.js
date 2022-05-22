@@ -11,13 +11,17 @@ import styled from "styled-components";
 // http://react.school/material-ui/templates
 
 const theme = {
-  blue: {
-    default: "#3f51b5",
-    hover: "#283593"
+  red: {
+    default: "#3f5160",
+    hover: "#E53935"
   },
-  pink: {
-    default: "#e91e63",
-    hover: "#ad1457"
+  orange: {
+    default: "#3f5160",
+    hover: "#FBC02D"
+  },
+  dark: {
+    default: "#3f5160",
+    hover: "#1C2833"
   }
 };
 
@@ -27,11 +31,13 @@ const Button = styled.button`
   padding: 5px 15px;
   border-radius: 5px;
   outline: 0;
-  text-transform: uppercase;
-  margin: 10px 0px;
+  //text-transform: uppercase;
+  margin: 10px 50px;
+  height: 100px;
+  font-size: 22px;
   cursor: pointer;
   box-shadow: 0px 2px 2px lightgray;
-  transition: ease background-color 250ms;
+  transition: ease background-color 450ms;
   &:hover {
     background-color: ${(props) => theme[props.theme].hover};
   }
@@ -42,96 +48,49 @@ const Button = styled.button`
 `;
 
 Button.defaultProps = {
-  theme: "blue"
+  theme: "dark"
 };
-
-function clickMe() {
-  alert("You clicked me!");
-}
-
-const ButtonToggle = styled(Button)`
-  opacity: 0.7;
-  ${({ active }) =>
-    active &&
-    `
-    opacity: 1; 
-  `}
-`;
-
-const Tab = styled.button`
-  padding: 10px 30px;
-  cursor: pointer;
-  opacity: 0.6;
-  background: white;
-  border: 0;
-  outline: 0;
-  border-bottom: 2px solid transparent;
-  transition: ease border-bottom 250ms;
-  ${({ active }) =>
-    active &&
-    `
-    border-bottom: 2px solid black;
-    opacity: 1;
-  `}
-`;
-
-function TabGroup() {
-  const [active, setActive] = useState(types[0]);
-  return (
-    <>
-      <div>
-        {types.map((type) => (
-          <Tab
-            key={type}
-            active={active === type}
-            onClick={() => setActive(type)}
-          >
-            {type}
-          </Tab>
-        ))}
-      </div>
-      <p />
-      <p> Your payment selection: {active} </p>
-    </>
-  );
-}
-
-const types = ["Cash", "Credit Card", "Bitcoin"];
-
-function ToggleGroup() {
-  const [active, setActive] = useState(types[0]);
-  return (
-    <div>
-      {types.map((type) => (
-        <ButtonToggle active={active === type} onClick={() => setActive(type)}>
-          {type}
-        </ButtonToggle>
-      ))}
-    </div>
-  );
-}
 
 export default function App() {
   return (
     <>
-      <div>
-        <Button onClick={clickMe}>Button</Button>
-      </div>
-      <div>
-        <Button theme="pink" onClick={clickMe}>
-          Pink theme
-        </Button>
-      </div>
-      <div>
-        <Button disabled onClick={clickMe}>
-          Disabled
-        </Button>
-      </div>
-      <a href="https://react.school" target="_blank">
-        <Button>Link</Button>
-      </a>
-      <ToggleGroup />
-      <TabGroup />
+      <body
+        style={{
+          height: "800px",
+          background: "#81D4FA",
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "center"
+        }}
+      >
+        <h2 style={{ textJustify: "center" }}></h2>
+        <a
+          href="https://docs.aws.amazon.com/codedeploy/latest/userguide/tutorials-github.html"
+          target="_blank"
+        >
+          <Button theme="orange">
+            {" "}
+            AWS: How to Deploy Repositories directly to an EC2{" "}
+          </Button>
+        </a>
+
+        <a
+          href="https://docs.github.com/en/actions/deployment/deploying-to-your-cloud-provider/deploying-to-amazon-elastic-container-service"
+          target="_blank"
+        >
+          <Button theme="dark">
+            {" "}
+            GitHub: How to Deploy Repositories directly to an EC2{" "}
+          </Button>
+        </a>
+
+        <a href="https://www.youtube.com/watch?v=HVw_NZUhDKs" target="_blank">
+          <Button theme="red">
+            {" "}
+            Youtube: Deploying a React app with GitHub Actions
+          </Button>
+        </a>
+      </body>
     </>
   );
 }
