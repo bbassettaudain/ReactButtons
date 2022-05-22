@@ -1,5 +1,4 @@
-name: React CI Simple Deployment
-
+name: React CI with Node Setup
 on:
   push:
     branches:
