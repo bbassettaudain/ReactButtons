@@ -13,10 +13,10 @@ jobs:
       matrix:
         node-version: lts/*
 
-      steps:
-      - uses: actions/checkout@v1
-      - name: Use Node LTS
-        uses: actions/setup-node@v1
-        with: ${{ matrix.node-version}} 
-      - run: npm install
-      - run: npm run build
+    steps:
+    - uses: actions/checkout@v1
+    - name: Use Node LTS
+      uses: actions/setup-node@v1
+      with: ${{ matrix.node-version}} 
+    - run: npm install
+    - run: npm run build
