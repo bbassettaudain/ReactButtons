@@ -3,7 +3,7 @@ name: React CI Simple Deployment
 on:
   push:
     branches:
-        "master"
+      -  "master"
 
 jobs:
   build:
@@ -15,6 +15,6 @@ jobs:
         node-version: lts/*
 
       steps:
-          uses: actions/checkout@v1
-          run: npm install
-          run: npm run build
+        -  uses: actions/checkout@v1
+        -  run: npm install
+        -  run: npm run build
