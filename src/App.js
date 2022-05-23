@@ -54,6 +54,7 @@ Button.defaultProps = {
 export default function App() {
   return (
     <>
+    <head>The is the Header for my react page.</head>
       <body
         style={{
           height: "800px",
